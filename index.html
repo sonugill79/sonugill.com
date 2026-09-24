@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#F7F5F1" />
+  <meta name="author" content="Sonu Gill" />
+  <title>Sonu Gill - Engineering Leader, Consumer Products and AI Adoption</title>
+  <meta name="description" content="Senior engineering leader in Seattle. Consumer product teams that move business numbers, AI-assisted development at scale, 17 years at Amazon, now at Oportun." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E416E'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='38' text-anchor='middle' fill='%23F7F5F1'%3ES%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    :root{
+      --paper:  #F7F5F1;
+      --paper-2:#EFEBE2;
+      --card:   #FBFAF7;
+      --ink:    #1C1B18;
+      --soft:   #5C584E;
+      --faint:  #8B867A;
+      --line:   #E4E0D5;
+      --line-2: #D6D1C4;
+      --accent: #1E416E;
+      --accent-dark: #163356;
+      --accent-soft: #E9EEF4;
+
+      --serif: Georgia, 'Iowan Old Style', 'Times New Roman', Times, serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+      --gutter: clamp(1.25rem, 4.5vw, 3rem);
+      --measure: 46rem;
+    }
+
+    *, *::before, *::after{ box-sizing: border-box; }
+
+    html{
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body{
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    ::selection{ background: rgba(30,65,110,.16); color: var(--ink); }
+
+    a{
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :focus-visible{
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .wrap{
+      width: 100%;
+      max-width: 74rem;
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    .measure{ max-width: var(--measure); }
+
+    h1, h2{ margin: 0; font-family: var(--serif); font-weight: 600; }
+    p{ margin: 0; }
+
+    section[id]{ scroll-margin-top: 92px; }
+
+    /* ---------- Slim header ---------- */
+    .site-head{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247,245,241,0.86);
+      -webkit-backdrop-filter: saturate(150%) blur(8px);
+      backdrop-filter: saturate(150%) blur(8px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .25s ease, background .25s ease;
+    }
+    .site-head.scrolled{ border-bottom-color: var(--line); }
+    .site-head .row{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      height: 64px;
+    }
+    .brand{
+      font-family: var(--serif);
+      font-size: 1.06rem;
+      font-weight: 600;
+      letter-spacing: .01em;
+      white-space: nowrap;
+    }
+    .brand__dot{ color: var(--accent); }
+    .nav{
+      display: none;
+      align-items: center;
+      gap: clamp(.9rem, 2vw, 1.5rem);
+      font-size: .9rem;
+      color: var(--soft);
+    }
+    .nav a{ position: relative; padding-block: .3rem; transition: color .2s ease; }
+    .nav a:hover{ color: var(--ink); }
+    .nav a::after{
+      content:""; position:absolute; left:0; bottom:-2px; width:0; height:1.5px;
+      background: var(--accent); transition: width .25s ease;
+    }
+    .nav a:hover::after{ width:100%; }
+    .nav .sep{ width:1px; height:16px; background: var(--line-2); }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      padding: .72rem 1.25rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: .94rem;
+      letter-spacing: .01em;
+      border: 1px solid transparent;
+      transition: background .2s ease, transform .2s ease, box-shadow .25s ease;
+    }
+    .btn:hover{
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px -14px rgba(22,51,86,.7);
+    }
+    .btn svg{ display:block; }
+
+    .head-cta{
+      display: inline-flex;
+      padding: .5rem 1rem;
+      font-size: .85rem;
+    }
+
+    /* ---------- Eyebrow ---------- */
+    .eyebrow{
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .73rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--soft);
+      font-weight: 600;
+    }
+    .eyebrow::before{ content:""; width: 22px; height: 2px; background: var(--accent); border-radius: 2px; }
+
+    .h2{
+      font-size: clamp(1.85rem, 3.2vw + .6rem, 2.85rem);
+      line-height: 1.12;
+      letter-spacing: -.015em;
+      margin-top: .8rem;
+      color: var(--ink);
+    }
+
+    .sec-head{ max-width: 34rem; margin-bottom: clamp(2rem, 5vw, 3.25rem); }
+    .sec-head__lead{
+      margin-top: 1rem;
+      color: var(--soft);
+      font-size: 1.05rem;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero{ padding-top: clamp(3rem, 7vw, 5.5rem); padding-bottom: clamp(4rem, 9vw, 7rem); }
+    .hero__grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2.5rem, 6vw, 4rem);
+      align-items: center;
+    }
+    .hero h1{
+      font-size: clamp(2.7rem, 6.5vw + 1rem, 4.6rem);
+      line-height: 1.02;
+      letter-spacing: -.02em;
+      margin-top: 1.1rem;
+    }
+    .hero__lead{
+      margin-top: 1.25rem;
+      font-size: clamp(1.2rem, 2vw + .6rem, 1.55rem);
+      line-height: 1.45;
+      letter-spacing: -.01em;
+      color: var(--ink);
+      max-width: 24ch;
+    }
+    .hero__role{
+      margin-top: 1.1rem;
+      color: var(--soft);
+      font-size: 1.02rem;
+      max-width: 42ch;
+    }
+    .hero__role strong{ color: var(--ink); font-weight: 600; }
+    .hero__actions{ margin-top: 1.9rem; display:flex; align-items:center; gap: 1rem; }
+
+    .headshot{
+      margin: 0 auto;
+      width: clamp(150px, 40vw, 210px);
+      aspect-ratio: 1 / 1;
+      display: block;
+    }
+    @media (min-width: 880px){
+      .hero__grid{
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: clamp(3rem, 7vw, 5.5rem);
+      }
+      .hero__grid > div:last-child{ order: -1; }
+      .hero__copy{ max-width: 32rem; }
+      .headshot{ width: clamp(260px, 28vw, 360px); margin: 0; }
+    }
+    .headshot__ring{
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #EDEAE2;
+      border: 1px solid var(--line-2);
+      box-shadow:
+        0 24px 50px -34px rgba(22,51,86,.55),
+        0 0 0 8px rgba(30,65,110,.06);
+    }
+    .headshot__ring img{
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      display: block;
+    }
+
+    /* ---------- Section base ---------- */
+    .section{ padding-top: clamp(4rem, 9vw, 7.5rem); padding-bottom: clamp(4rem, 9vw, 7.5rem); }
+    .section + .section{ border-top: 1px solid var(--line); }
+
+    /* ---------- Numbers ---------- */
+    .numbers{ background: var(--paper-2); }
+    .tile-grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 620px){ .tile-grid{ grid-template-columns: repeat(2, 1fr); gap: 16px; } }
+    @media (min-width: 940px){ .tile-grid{ grid-template-columns: repeat(3, 1fr); gap: 18px; } }
+
+    .tile{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: clamp(1.15rem, 2.6vw, 1.6rem);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .3s ease;
+    }
+    @media (prefers-reduced-motion: no-preference){
+      .tile:hover{
+        transform: translateY(-3px);
+        border-color: var(--line-2);
+        box-shadow: 0 20px 40px -30px rgba(0,0,0,.45);
+      }
+    }
+    .tile__value{
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(2.1rem, 4.6vw, 2.9rem);
+      line-height: 1;
+      letter-spacing: -.02em;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .tile__value small{ font-size: .5em; letter-spacing: 0; color: var(--soft); font-family: var(--sans); font-weight:600; }
+    .tile__label{
+      margin-top: .7rem;
+      font-size: .97rem;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+    .tile__src{
+      margin-top: 1rem;
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .tile__src::before{ content:""; width:6px; height:6px; background: var(--accent); border-radius:1.5px; opacity:.7; }
+
+    /* ---------- AI ---------- */
+    .ai .lead{
+      font-size: clamp(1.15rem, 2vw + .55rem, 1.4rem);
+      line-height: 1.55;
+      color: var(--ink);
+    }
+    .ai .body{
+      margin-top: 1.25rem;
+      color: var(--soft);
+      font-size: 1.05rem;
+    }
+    .ai .hl{
+      color: var(--accent);
+      font-weight: 600;
+      background: linear-gradient(transparent 76%, rgba(30,65,110,.16) 0);
+      padding: 0 .06em;
+    }
+    .ai__note{
+      margin-top: 2rem;
+      padding-left: 1.1rem;
+      border-left: 2px solid var(--accent);
+      color: var(--soft);
+      font-size: .98rem;
+      max-width: 40ch;
+    }
+
+    /* ---------- Career ---------- */
+    .employer + .employer{
+      margin-top: clamp(3rem, 6vw, 4.75rem);
+      padding-top: clamp(3rem, 6vw, 4.75rem);
+      border-top: 1px solid var(--line);
+    }
+    .employer__head{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .4rem 1.1rem;
+    }
+    .employer__name{
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 3vw, 1.7rem);
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .employer__role{ color: var(--soft); font-size: 1rem; }
+    .employer__when{
+      margin-left: auto;
+      font-size: .74rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      white-space: nowrap;
+    }
+    @media (max-width: 560px){
+      .employer__when{ margin-left: 0; }
+      .employer__head{ align-items: flex-start; flex-direction: column; gap: .3rem; }
+    }
+    .employer__intro{ margin-top: 1rem; color: var(--soft); font-size: 1.04rem; max-width: 60ch; }
+    .bullets{
+      list-style: none;
+      margin: 1.4rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: .95rem;
+    }
+    .bullets li{
+      position: relative;
+      padding-left: 1.55rem;
+      line-height: 1.62;
+      color: var(--ink);
+      max-width: 64ch;
+    }
+    .bullets li::before{
+      content:""; position: absolute; left:0; top:.6em;
+      width: 10px; height: 2px; background: var(--accent); border-radius: 2px;
+    }
+    .bullets li strong{ font-weight: 600; color: var(--accent); }
+    .bullets li b{ font-weight: 600; }
+
+    /* ---------- Trippits ---------- */
+    .trippits__lead{
+      font-size: clamp(1.15rem, 2vw + .55rem, 1.4rem);
+      line-height: 1.55;
+      color: var(--ink);
+      max-width: 52ch;
+    }
+    .trippits a.inline{
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: rgba(30,65,110,.35);
+      text-underline-offset: 3px;
+      transition: text-decoration-color .2s ease, color .2s ease;
+    }
+    .trippits a.inline:hover{ color: var(--accent-dark); text-decoration-color: var(--accent); }
+    .trippits__meta{
+      margin-top: 1.4rem;
+      display: flex; flex-wrap: wrap; gap: .6rem;
+    }
+    .chip{
+      font-size: .78rem; font-weight:600; letter-spacing:.02em;
+      color: var(--soft);
+      border: 1px solid var(--line-2);
+      border-radius: 999px;
+      padding: .35rem .8rem;
+      background: var(--card);
+    }
+    .trippits__more{
+      margin-top: 1.5rem;
+      color: var(--soft);
+      font-size: 1rem;
+      max-width: 60ch;
+    }
+    .trippits__pod{
+      margin-top: clamp(2rem, 5vw, 2.8rem);
+      padding-top: clamp(1.6rem, 4vw, 2.2rem);
+      border-top: 1px solid var(--line);
+    }
+    .pod__title{
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 2.4vw, 1.6rem);
+      line-height: 1.3;
+      margin: 0 0 .9rem;
+    }
+    .pod__title a{ color: var(--ink); }
+    .pod__title a:hover{ color: var(--accent); }
+    .pod__where{
+      display: block;
+      margin-top: .35rem;
+      font-family: var(--sans);
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--faint);
+    }
+    .pod__desc{
+      font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+      line-height: 1.6;
+      color: var(--ink);
+      max-width: 58ch;
+    }
+    .pod__meta{
+      margin-top: 1.3rem;
+      display: flex; flex-wrap: wrap; gap: .6rem;
+    }
+
+    /* ---------- Writing ---------- */
+    .write-list{
+      list-style: none;
+      margin: clamp(1.6rem, 4vw, 2.4rem) 0 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+    }
+    .write-list li{ border-bottom: 1px solid var(--line); }
+    .write-list a{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .75rem 2rem;
+      padding: 1rem .2rem;
+      color: var(--ink);
+      border-radius: 6px;
+      transition: background .2s ease;
+    }
+    .write-list a:hover{ background: rgba(30,65,110,.05); }
+    .w-title{
+      font-family: var(--serif);
+      font-size: 1.13rem;
+      line-height: 1.45;
+      transition: color .2s ease;
+    }
+    .write-list a:hover .w-title{ color: var(--accent); }
+    .w-date{
+      flex: none;
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--faint);
+      white-space: nowrap;
+    }
+    .writes__posts{ margin-top: 1.6rem; color: var(--soft); font-size: .98rem; line-height: 2; }
+    .writes a.inline{
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: rgba(30,65,110,.35);
+      text-underline-offset: 3px;
+      transition: color .2s ease, text-decoration-color .2s ease;
+    }
+    .writes a.inline:hover{ color: var(--accent-dark); text-decoration-color: var(--accent); }
+
+    /* ---------- Contact ---------- */
+    .contact{ background: var(--paper-2); }
+    .contact__grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2rem, 5vw, 3.5rem);
+      align-items: center;
+    }
+    @media (min-width: 820px){ .contact__grid{ grid-template-columns: 1.1fr .9fr; } }
+    .contact .lead{
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 3.2vw + .6rem, 2.6rem);
+      line-height: 1.18;
+      letter-spacing: -.015em;
+      color: var(--ink);
+      max-width: 22ch;
+    }
+    .contact__sub{ margin-top: 1rem; color: var(--soft); font-size: 1.02rem; max-width: 44ch; }
+    .contact__card{
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--card);
+      padding: clamp(1.4rem, 3vw, 1.9rem);
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+    .contact__handle{
+      font-size: .95rem;
+      color: var(--soft);
+      display: flex; align-items:center; gap:.6rem;
+    }
+    .contact__handle svg{ flex:none; }
+    .contact__handle b{ color: var(--ink); font-weight:600; }
+
+    /* ---------- Footer ---------- */
+    .site-foot{
+      padding: clamp(2.2rem, 5vw, 3rem) 0;
+    }
+    .site-foot .row{
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: .8rem 1.5rem;
+      color: var(--faint); font-size: .85rem;
+    }
+    .site-foot .brand{ color: var(--ink); font-size: 1rem; }
+    .site-foot a{ color: var(--soft); }
+    .site-foot a:hover{ color: var(--ink); }
+    .site-foot .links{ display:flex; align-items:center; gap:1rem; }
+    .dotsep{ width:3px; height:3px; border-radius:50%; background: var(--line-2); }
+
+    /* ---------- Reveal / motion ---------- */
+    @media (prefers-reduced-motion: no-preference){
+      [data-reveal]{ opacity: 1; }
+      [data-reveal].pre{
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1);
+        transition-delay: calc(var(--i, 0) * 70ms);
+      }
+      [data-reveal].pre.in{ opacity: 1; transform: none; }
+
+      .rise{
+        opacity: 0;
+        transform: translateY(18px);
+        animation: rise .8s cubic-bezier(.2,.7,.25,1) forwards;
+        animation-delay: calc(var(--d, 0) * 90ms);
+      }
+      @keyframes rise{ to{ opacity:1; transform:none; } }
+    }
+
+    @media (max-width: 560px){
+      .hero__lead{ max-width: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-head" id="siteHead">
+    <div class="wrap">
+      <div class="row">
+        <a class="brand" href="#top">Sonu Gill<span class="brand__dot">.</span></a>
+
+        <nav class="nav" aria-label="Sections">
+          <a href="#numbers">Numbers</a>
+          <a href="#ai">AI</a>
+          <a href="#career">Career</a>
+          <a href="#trippits">Trippits</a>
+          <a href="#writing">Writing</a>
+          <span class="sep" aria-hidden="true"></span>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="btn head-cta" href="https://linkedin.com/in/sonugill" target="_blank" rel="noopener">
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="wrap">
+        <div class="hero__grid">
+
+          <div class="hero__copy">
+            <span class="eyebrow rise" style="--d:0">Senior Engineering Leader &middot; Seattle</span>
+            <h1 class="rise" style="--d:1">Sonu Gill</h1>
+            <p class="hero__lead rise" style="--d:2">I lead engineering for consumer products &mdash; teams that move the business numbers, and now ship faster with AI.</p>
+            <p class="hero__role rise" style="--d:3">
+              <strong>Senior Director of Engineering, Member Success at Oportun.</strong>
+              17 years at Amazon before that. Based in Seattle.
+            </p>
+            <div class="hero__actions rise" style="--d:4">
+              <a class="btn" href="https://linkedin.com/in/sonugill" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                  <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+                </svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <!-- HEADSHOT: headshot.png (583x777). Swap the src here for the final tighter crop (boutonniere removed) if you change the file. -->
+          <div class="rise" style="--d:3">
+            <figure class="headshot">
+              <div class="headshot__ring">
+                <img src="headshot.png" alt="Portrait of Sonu Gill" width="583" height="777" decoding="async" />
+              </div>
+            </figure>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ BY THE NUMBERS ============================ -->
+    <section class="section numbers" id="numbers" aria-labelledby="numbers-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow" data-reveal>By the numbers</span>
+          <h2 class="h2" id="numbers-title" data-reveal style="--i:1">The proof, scannable in ten seconds.</h2>
+          <p class="sec-head__lead" data-reveal style="--i:2">Selected outcomes from recent years. Every metric below is verified.</p>
+        </div>
+
+        <div class="tile-grid">
+          <article class="tile" data-reveal style="--i:0">
+            <div class="tile__value">+38%</div>
+            <div class="tile__label">App monthly active users, year over year in 2025</div>
+            <div class="tile__src">Oportun &middot; Online Servicing</div>
+          </article>
+
+          <article class="tile" data-reveal style="--i:1">
+            <div class="tile__value">61% &rarr; 72.5%</div>
+            <div class="tile__label">Digital payment conversion in the app; 68% to 88% on the web</div>
+            <div class="tile__src">Oportun</div>
+          </article>
+
+          <article class="tile" data-reveal style="--i:2">
+            <div class="tile__value">$2M+</div>
+            <div class="tile__label">Online Servicing impact in 2025</div>
+            <div class="tile__src">Oportun</div>
+          </article>
+
+          <article class="tile" data-reveal style="--i:3">
+            <div class="tile__value">$350K+</div>
+            <div class="tile__label">Infrastructure savings in 2025</div>
+            <div class="tile__src">Oportun</div>
+          </article>
+
+          <article class="tile" data-reveal style="--i:4">
+            <div class="tile__value">12&ndash;16</div>
+            <div class="tile__label">Extra SDE-weeks per team, per quarter, from AI-assisted development</div>
+            <div class="tile__src">Oportun</div>
+          </article>
+
+          <article class="tile" data-reveal style="--i:5">
+            <div class="tile__value">$12M+ &rarr; $1M</div>
+            <div class="tile__label">Transcoding cost, brought down</div>
+            <div class="tile__src">Amazon &middot; Photos</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ AI ADOPTION AT SCALE ============================ -->
+    <section class="section ai" id="ai" aria-labelledby="ai-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow" data-reveal>AI adoption at scale</span>
+        </div>
+        <h2 class="h2" id="ai-title" data-reveal style="max-width:20ch;">AI that shows up in the roadmap, not just the demo.</h2>
+        <div class="ai" style="margin-top: clamp(1.6rem, 4vw, 2.4rem);">
+          <p class="lead" data-reveal style="--i:1">
+            In 2026 I moved every one of my teams at Oportun onto AI-assisted development, Codex included. That meant hands-on onboarding, biweekly knowledge shares, engineers demoing what they built, and a champion inside each team to keep it going.
+          </p>
+          <p class="body" data-reveal style="--i:2">
+            Then we measured it. ROI reporting sits in our roadmap reviews next to everything else. The result:
+            <span class="hl">roughly 12&ndash;16 extra SDE-weeks per team every quarter, and about a 50% lift in velocity and code output.</span>
+          </p>
+          <p class="ai__note" data-reveal style="--i:3">
+            AI is on the roadmap as a first-class line item &mdash; onboarding, knowledge transfer, champions, and ROI &mdash; not a one-off pilot.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CAREER ============================ -->
+    <section class="section career" id="career" aria-labelledby="career-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow" data-reveal>Career</span>
+          <h2 class="h2" id="career-title" data-reveal style="--i:1">The arc and the scale.</h2>
+          <p class="sec-head__lead" data-reveal style="--i:2">Two roles, one through-line: engineering organizations that ship product and move the business.</p>
+        </div>
+
+        <div class="employer" data-reveal>
+          <div class="employer__head">
+            <span class="employer__name">Oportun</span>
+            <span class="employer__role">Senior Director of Engineering, Member Success</span>
+            <span class="employer__when">2024 &ndash; Present</span>
+          </div>
+          <p class="employer__intro">
+            I lead Member Success engineering at Oportun, a regulated consumer lender: the Communications Platform and Comms Engine, Member Services, Onboarding, Savings and Online Servicing. I run it through directors and senior engineering managers and own priorities, quality bars and release gates across the portfolio.
+          </p>
+          <ul class="bullets">
+            <li>App monthly active users up <b>38%</b> year over year in 2025 across my Online Servicing org.</li>
+            <li>Lifted digital payment conversion from <b>61% to 72.5%</b> in the app and <b>68% to 88%</b> on the web, while moving the front end from Angular to React.</li>
+            <li>Delivered <b>$2M+</b> in Online Servicing impact and <b>$350K+</b> in infrastructure savings in 2025.</li>
+            <li>Brought tighter compliance and reliability to regulated member communications and payments.</li>
+            <li><strong>Hiring:</strong> rebuilt hiring for our India team from scratch &mdash; interviewer training, a structured interview and debrief process, first-round automated coding interviews through a third-party service, and a mass-hiring process. Bar Raiser-style hiring without the name. It helped us scale by about 100 hires, and I taught key leaders to run interviews and debriefs so they could make fast decisions.</li>
+          </ul>
+        </div>
+
+        <div class="employer" data-reveal>
+          <div class="employer__head">
+            <span class="employer__name">Amazon</span>
+            <span class="employer__role">17 years &middot; Consumer Product Engineering</span>
+            <span class="employer__when">2006 &ndash; 2024</span>
+          </div>
+          <p class="employer__intro">
+            I started as a test engineer and grew into leading large consumer product orgs across Alexa, Amazon Photos and mobile.
+          </p>
+          <ul class="bullets">
+            <li><strong>Alexa Audio:</strong> led a 50-person org, including managers of managers, building music experiences on Echo Show, Fire TV, Alexa Auto, Echo Buds and mobile. Scaled from 1 manager and 19 engineers to 6 teams and 46 engineers, and opened the Vancouver office &mdash; a brand-new app development office, started from zero.</li>
+            <li>Cut the time to ship new features and screens from <b>six months to six weeks</b> with reusable components.</li>
+            <li>Raised employee satisfaction from <b>42% to 98%</b>.</li>
+            <li><strong>Amazon Photos:</strong> grew the computer vision charter from 12 to 23+ services, cut operating expense about 40%, and brought transcoding cost from $12M+ down to $1M.</li>
+            <li><strong>Amazon Bar Raiser</strong> &mdash; 405+ interviews.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ TRIPPITS ============================ -->
+    <section class="section trippits" id="trippits" aria-labelledby="trippits-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow" data-reveal>I still enjoy building</span>
+          <h2 class="h2" id="trippits-title" data-reveal style="--i:1">Trippits</h2>
+        </div>
+        <p class="trippits__lead" data-reveal style="--i:0; margin-top: clamp(1.6rem, 4vw, 2.4rem);">
+          <a class="inline" href="https://trippits.com" target="_blank" rel="noopener">Trippits (trippits.com)</a>
+          is a group trip-planning service I build and run on my own. A group votes on dates, location, stay, activities and travel until the plan is settled. It has an API designed for AI agents, and I use it as a live test bed for agent integrations.
+        </p>
+        <div class="trippits__meta" data-reveal style="--i:1">
+          <span class="chip">Built &amp; run solo</span>
+          <span class="chip">API for AI agents</span>
+          <span class="chip">Live test bed for agent integrations</span>
+        </div>
+        <div class="trippits__pod" data-reveal style="--i:2">
+          <h3 class="pod__title">
+            <a class="inline" href="https://github.com/sonugill79/podcast-skill" target="_blank" rel="noopener">podcast-skill</a>
+            <span class="pod__where">Claude Code plugin &middot; on GitHub &middot; MIT</span>
+          </h3>
+          <p class="pod__desc">
+            Given a topic, it researches with parallel sub-agents, re-checks the load-bearing claims against primary sources &mdash; verified vs. reported, in a
+            sources.md alongside the episode &mdash; writes a two-host podcast script, then renders the audio and verifies it against the script. The voice
+            and the transcription both run locally, and nothing is sent anywhere.
+          </p>
+          <div class="pod__meta">
+            <span class="chip">Topic &rarr; verified audio episode</span>
+            <span class="chip">Claim-checked against sources</span>
+            <span class="chip">Local voice + local audio QA</span>
+          </div>
+        </div>
+        <p class="trippits__more" data-reveal style="--i:3">
+          Beyond these, also built and shipped:
+          <a class="inline" href="https://finance-lens.com" target="_blank" rel="noopener">finance-lens.com</a> and
+          <a class="inline" href="https://investvsbuy.com" target="_blank" rel="noopener">investvsbuy.com</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ WRITING ============================ -->
+    <section class="section writes" id="writing" aria-labelledby="writing-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow" data-reveal>I also write</span>
+          <h2 class="h2" id="writing-title" data-reveal style="--i:1">Small articles, every now and then.</h2>
+          <p class="sec-head__lead" data-reveal style="--i:2">Lately on AI, earlier on habits, time and staying current. A selection, most recent first.</p>
+        </div>
+
+        <ul class="write-list">
+          <li data-reveal style="--i:0"><a href="https://www.linkedin.com/pulse/hardest-part-ai-roi-isnt-tokens-its-attribution-sonu-gill-skx7c/" target="_blank" rel="noopener"><span class="w-title">The Hardest Part of AI ROI Isn't Tokens. It's Attribution.</span><span class="w-date">Jun 2026</span></a></li>
+          <li data-reveal style="--i:1"><a href="https://www.linkedin.com/pulse/why-coding-ai-feels-like-tending-bonsai-tree-sonu-gill-6vrrc/" target="_blank" rel="noopener"><span class="w-title">Why Coding with AI Feels Like Tending a Bonsai Tree</span><span class="w-date">Sep 2025</span></a></li>
+          <li data-reveal style="--i:2"><a href="https://www.linkedin.com/pulse/embracing-change-balancing-personal-professional-family-sonu-gill/" target="_blank" rel="noopener"><span class="w-title">Embracing Change: Balancing Personal, Professional, and Family Life as a Software Developer</span><span class="w-date">Aug 2023</span></a></li>
+          <li data-reveal style="--i:3"><a href="https://www.linkedin.com/pulse/navigating-ever-changing-tech-landscape-embracing-continuous-gill/" target="_blank" rel="noopener"><span class="w-title">Navigating the Ever-Changing Tech Landscape: Embracing Continuous Learning for Success</span><span class="w-date">Jun 2023</span></a></li>
+          <li data-reveal style="--i:4"><a href="https://www.linkedin.com/pulse/time-your-side-master-management-professional-personal-sonu-gill/" target="_blank" rel="noopener"><span class="w-title">Time is on Your Side: Master Time Management for Professional and Personal Growth</span><span class="w-date">Jun 2023</span></a></li>
+          <li data-reveal style="--i:5"><a href="https://www.linkedin.com/pulse/how-stay-motivated-when-life-gets-tough-utilizing-habit-sonu-gill/" target="_blank" rel="noopener"><span class="w-title">How to Stay Motivated When Life Gets Tough &mdash; Utilizing a Habit Tracker and Gamification Strategy</span><span class="w-date">May 2023</span></a></li>
+          <li data-reveal style="--i:6"><a href="https://www.linkedin.com/pulse/from-potential-progress-simple-guide-discovering-defining-sonu-gill/" target="_blank" rel="noopener"><span class="w-title">From Potential to Progress: A Simple Guide to Discovering, Defining, and Achieving Goals</span><span class="w-date">Apr 2023</span></a></li>
+        </ul>
+
+        <p class="writes__posts" data-reveal>
+          Short posts along the way:
+          <a class="inline" href="https://www.linkedin.com/feed/update/urn:li:activity:7092157026708959233/" target="_blank" rel="noopener">Work&ndash;life balance</a>,
+          <a class="inline" href="https://www.linkedin.com/feed/update/urn:li:activity:7079111065191542784/" target="_blank" rel="noopener">Keeping up with trends</a>,
+          <a class="inline" href="https://www.linkedin.com/feed/update/urn:li:activity:7070051380874420224/" target="_blank" rel="noopener">Time management</a> and
+          <a class="inline" href="https://www.linkedin.com/feed/update/urn:li:activity:7058832456598110209/" target="_blank" rel="noopener">Habit tracking</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================ -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact__grid">
+          <div>
+            <span class="eyebrow" data-reveal>Contact</span>
+            <p class="lead" id="contact-title" data-reveal style="--i:1">Always glad to talk with engineering and product leaders and founders.</p>
+            <p class="contact__sub" data-reveal style="--i:2">One conversation, via LinkedIn. No forms, no email gateways.</p>
+          </div>
+
+          <div class="contact__card" data-reveal style="--i:1">
+            <a class="btn" href="https://linkedin.com/in/sonugill" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+              </svg>
+              Connect on LinkedIn
+            </a>
+            <span class="contact__handle">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false">
+                <path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span><b>linkedin.com/in/sonugill</b></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="row">
+        <span class="brand">Sonu Gill<span class="brand__dot">.</span></span>
+        <div class="links">
+          <span>Engineering &middot; Consumer Products &middot; AI Adoption</span>
+          <span class="dotsep" aria-hidden="true"></span>
+          <a href="https://linkedin.com/in/sonugill" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <span>&copy; <span id="year">2026</span> &middot; Seattle, WA</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var yearEl = document.getElementById('year');
+      if (yearEl){ yearEl.textContent = new Date().getFullYear(); }
+
+      var head = document.getElementById('siteHead');
+      function onScroll(){
+        if(!head) return;
+        head.classList.toggle('scrolled', window.scrollY > 8);
+      }
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // Restrained, one-time reveal for [data-reveal]. No-op if reduced-motion or IO unsupported.
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+      if (!reduce && 'IntersectionObserver' in window && els.length){
+        els.forEach(function(el){ el.classList.add('pre'); });
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){
+            if (entry.isIntersecting){
+              entry.target.classList.add('in');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        els.forEach(function(el){ io.observe(el); });
+      }
+    })();
+  </script>
+</body>
+</html>
